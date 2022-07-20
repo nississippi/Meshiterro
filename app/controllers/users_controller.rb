@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     #Userモデルの has_many :post_imagesと繋がっている
-    @post_images = @user.post_images
+    @post_images = @user.post_images.page(params[:page])
   end
 
   def edit
